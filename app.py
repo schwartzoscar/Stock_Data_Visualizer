@@ -20,7 +20,7 @@ def Main():
     ui.get_time_series()
     ui.get_dates()
 
-    if not restart_program():
+    if not ui.restart_program():
             #break
             return
     return
