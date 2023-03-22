@@ -14,7 +14,15 @@ eDate = None
 #Main function needs to accept input and send output to the ui.py file.
 def Main():
     #Call function in ui.py that begins the interaction between the user and system
-    ui.main()
+    print("Stock Data Visualizer\n--------------------")
+    ui.get_stock_symbol()
+    ui.get_chart_type()
+    ui.get_time_series()
+    ui.get_dates()
+
+    if not restart_program():
+            #break
+            return
     return
 
 ########################

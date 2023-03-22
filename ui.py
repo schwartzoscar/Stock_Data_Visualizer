@@ -62,14 +62,3 @@ def get_dates():
 def restart_program():
     restart = input("Do you want to restart the program? (y/n): ")
     return restart.lower() == 'y'
-
-def main():
-    while True:
-        print("Stock Data Visualizer\n--------------------")
-        get_stock_symbol()
-        get_chart_type()
-        get_time_series()
-        get_dates()
-
-        if not restart_program():
-            break
