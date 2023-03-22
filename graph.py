@@ -4,24 +4,18 @@ from pygal.style import Style
 
 
 #####  Public Functions  #####
-def create_line_graph(json: dict):
+def create_line_graph():
     '''
     Creates a Line Graph of given data and displays in the user's default browser.
-
-    Parameters:
-        json: A dictionary representation of the data JSON.
     '''
     create_graph(json, pygal.Line())
 
 
-def create_bar_graph(json: dict):
+def create_bar_graph():
     '''
     Creates a Bar Graph of given data and displays in the user's default browser.
-
-    Parameters:
-        json: A dictionary representation of the data JSON.
     '''
-    create_graph(json, pygal.Bar())
+    create_graph(app.GetStock(), pygal.Bar())
 
 
 #####  Private Functions  #####
