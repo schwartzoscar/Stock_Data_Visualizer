@@ -31,6 +31,10 @@ def SetStockSymbol(x):
     global stockSymbol
     stockSymbol = x
 
+def SetStock(new_stock_data):
+    global stock
+    stock = new_stock_data
+
 def SetChartType(x):
     #Gets input from UI to determine the chart that they would like to use
     global chartType
@@ -69,6 +73,9 @@ def GetApi():
 def GetStockSymbol():
     #Returns the stock symbol
     return stockSymbol
+
+def GetStock():
+    return stock
     
 def GetChartType():
     #Returns the chart type
