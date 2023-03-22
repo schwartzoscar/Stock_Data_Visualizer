@@ -5,6 +5,7 @@ def get_stock_symbol():
     stockSymbol = input("Enter the stock Symbol you are looking for: ")
     print(stockSymbol)
     app.SetStockSymbol(get_stock_symbol())
+    return
 
 def get_chart_type():
     valid_chart_type = False
@@ -41,6 +42,7 @@ def get_time_series():
         else:
             print("Invalid input. Please enter 1, 2, 3 or 4.")
         app.SetTimeSeries(get_time_series())
+    return
 
 def get_dates():
     while True:
@@ -59,17 +61,7 @@ def get_dates():
         except ValueError:
             print("Error: Invalid date format. Please enter a date in the format YYYY-MM-DD.")
             #if the user enteres a end date before the start date it will ask for the start date again.
+    return
 def restart_program():
     restart = input("Do you want to restart the program? (y/n): ")
     return restart.lower() == 'y'
-
-def main():
-    while True:
-        print("Stock Data Visualizer\n--------------------")
-        stockSymbol = get_stock_symbol()
-        chartType = get_chart_type()
-        timeSeries = get_time_series()
-        bDate, eDate = get_dates()
-
-        if not restart_program():
-            break
