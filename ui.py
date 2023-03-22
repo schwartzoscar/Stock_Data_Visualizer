@@ -1,7 +1,10 @@
+from datetime import datetime
+import app
+import graph
 def get_stock_symbol():
     stockSymbol = input("Enter the stock Symbol you are looking for: ")
     print(stockSymbol)
-    return stockSymbol
+    app.SetStockSymbol(get_stock_symbol())
 
 def get_chart_type():
     valid_chart_type = False
@@ -9,13 +12,15 @@ def get_chart_type():
         chartType = input("Chart Types\n----------\n1. Bar\n2. Line\nEnter the chart type you want (1, 2): ")
         if chartType == '1':
             print("Bar")
+            graph.create_bar_graph()
             valid_chart_type = True
         elif chartType == '2':
             print("Line")
+            graph.create_line_graph()
             valid_chart_type = True
         else:
             print("Invalid input. Please enter 1 or 2.")
-    return chartType
+    app.SetChartType(get_chart_type())
 
 def get_time_series():
     valid_time_type = False
@@ -35,8 +40,25 @@ def get_time_series():
             valid_time_type = True
         else:
             print("Invalid input. Please enter 1, 2, 3 or 4.")
-    return timeSeries
+        app.SetTimeSeries(get_time_series())
 
+def get_dates():
+    while True:
+        try:
+            bDate = input("Enter the start date in format (YYYY-MM-DD): ")
+            bDate = datetime.strptime(bDate, "%Y-%m-%d")
+            print(bDate.strftime("%Y-%m-%d"))
+            eDate = input("Enter the ending date in format (YYYY-MM-DD): ")
+            eDate = datetime.strptime(eDate, "%Y-%m-%d")
+            print(eDate.strftime("%Y-%m-%d"))
+            if bDate > eDate:
+                print("Error: Start date must be before end date.")
+            else:
+                app.SetBeginningDate(bDate)
+                app.SetEndDate(eDate)
+        except ValueError:
+            print("Error: Invalid date format. Please enter a date in the format YYYY-MM-DD.")
+            #if the user enteres a end date before the start date it will ask for the start date again.
 def restart_program():
     restart = input("Do you want to restart the program? (y/n): ")
     return restart.lower() == 'y'
@@ -47,8 +69,7 @@ def main():
         stockSymbol = get_stock_symbol()
         chartType = get_chart_type()
         timeSeries = get_time_series()
-        
+        bDate, eDate = get_dates()
+
         if not restart_program():
             break
-
-main()
