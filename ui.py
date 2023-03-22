@@ -66,10 +66,10 @@ def restart_program():
 def main():
     while True:
         print("Stock Data Visualizer\n--------------------")
-        stockSymbol = get_stock_symbol()
-        chartType = get_chart_type()
-        timeSeries = get_time_series()
-        bDate, eDate = get_dates()
+        get_stock_symbol()
+        get_chart_type()
+        get_time_series()
+        get_dates()
 
         if not restart_program():
             break
