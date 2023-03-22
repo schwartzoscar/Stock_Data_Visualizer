@@ -10,8 +10,6 @@ import app
 #stock_data = app.GetStock()
 #symbol = stock_data["symbol"]
 
-app.SetApi("ARJ4YHDD7BSSD94B")
-
 def pullStock():
     url = f"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={app.GetStockSymbol()}&apikey={app.GetApi()}"
     r = requests.get(url)

@@ -3,7 +3,7 @@ import graph
 import api
 import error
 
-api = None
+api = "ARJ4YHDD7BSSD94B"
 stockSymbol = None
 stock = None
 chartType = None
@@ -21,11 +21,6 @@ def Main():
 #This is the Set Section
 #These are things/functions for me to grab information
 ########################
-
-def SetApi(x):
-    #Gets Api key from api.py 
-    global api
-    api = x
 
 def SetStockSymbol(x):
     #Gets input from UI and sets the stock symbol
