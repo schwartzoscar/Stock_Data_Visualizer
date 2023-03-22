@@ -47,7 +47,7 @@ def main():
         stockSymbol = get_stock_symbol()
         chartType = get_chart_type()
         timeSeries = get_time_series()
-
+        
         if not restart_program():
             break
 
