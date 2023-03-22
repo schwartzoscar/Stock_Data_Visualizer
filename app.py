@@ -5,6 +5,7 @@ import error
 
 api = None
 stockSymbol = None
+stock = None
 chartType = None
 timeSeries = None
 bDate = None
