@@ -17,7 +17,8 @@ def pullStock():
     r = requests.get(url)
     data = r.json()
     stock_data = data["Global Quote"]
-    return{
+    
+    app.SetStock({
     "symbol": stock_data["01. symbol"],
     "open": stock_data["02. open"],
     "high": stock_data["03. high"],
@@ -28,8 +29,7 @@ def pullStock():
     "previous_close": stock_data["08. previous close"],
     "change": stock_data["09. change"],
     "change_percent": stock_data["10. change percent"]
+})
 
-    }
 
-app.SetStock(pullStock())
 
