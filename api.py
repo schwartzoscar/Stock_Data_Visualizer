@@ -17,7 +17,7 @@ stock_data = data["Global Quote"]
 # To access one of these variables you will first need to use the following example,
 
 #import app
-#stock = app.GetStock()
+#stock_data = app.GetStock()
 #symbol = stock_data["symbol"]
 
 app.SetStock({
