@@ -5,22 +5,19 @@ import app
 # get the symbol of the stock data the user is wishing to view, before running it through the url variable with retrieves
 # the data from the API.
 
-
-app.SetApi("ARJ4YHDD7BSSD94B")
-
-url = f"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={app.GetStockSymbol()}&apikey={app.GetApi()}"
-r = requests.get(url)
-data = r.json()
-stock_data = data["Global Quote"]
-
-
 # To access one of these variables you will first need to use the following example,
-
 #import app
 #stock_data = app.GetStock()
 #symbol = stock_data["symbol"]
 
-app.SetStock({
+app.SetApi("ARJ4YHDD7BSSD94B")
+
+def pullStock():
+    url = f"https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={app.GetStockSymbol()}&apikey={app.GetApi()}"
+    r = requests.get(url)
+    data = r.json()
+    stock_data = data["Global Quote"]
+    return{
     "symbol": stock_data["01. symbol"],
     "open": stock_data["02. open"],
     "high": stock_data["03. high"],
@@ -31,5 +28,8 @@ app.SetStock({
     "previous_close": stock_data["08. previous close"],
     "change": stock_data["09. change"],
     "change_percent": stock_data["10. change percent"]
-})
+
+    }
+
+app.SetStock(pullStock())
 
