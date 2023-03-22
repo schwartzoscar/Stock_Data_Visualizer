@@ -4,7 +4,7 @@ import api
 import error
 
 api = None
-stockSymbol = None
+stock = None
 chartType = None
 timeSeries = None
 bDate = None
@@ -25,11 +25,6 @@ def SetApi(x):
     #Gets Api key from api.py 
     global api
     api = x
-
-def SetStockSymbol(x):
-    #Gets input from UI and sets the stock symbol
-    global stockSymbol
-    stockSymbol = x
 
 def SetStock(new_stock_data):
     global stock
@@ -69,10 +64,6 @@ def SetEndDate(x):
 def GetApi():
     #Returns the api key
     return api
-
-def GetStockSymbol():
-    #Returns the stock symbol
-    return stockSymbol
 
 def GetStock():
     return stock
