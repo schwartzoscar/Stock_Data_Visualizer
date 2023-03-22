@@ -15,9 +15,9 @@ eDate = None
 def Main():
     #Call function in ui.py that begins the interaction between the user and system
     print("Stock Data Visualizer\n--------------------")
-    ui.get_stock_symbol()
-    ui.get_chart_type()
-    ui.get_time_series()
+    SetStockSymbol(ui.get_stock_symbol())
+    SetChartType(ui.get_chart_type())
+    SetTimeSeries(ui.get_time_series())
     ui.get_dates()
 
     if not ui.restart_program():
