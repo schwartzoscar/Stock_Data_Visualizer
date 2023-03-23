@@ -15,10 +15,10 @@ eDate = None
 def Main():
     #Call function in ui.py that begins the interaction between the user and system
     print("Stock Data Visualizer\n--------------------")
-    SetStockSymbol(ui.get_stock_symbol())
+    #SetStockSymbol(ui.get_stock_symbol())
     SetChartType(ui.get_chart_type())
     SetTimeSeries(ui.get_time_series())
-    ui.get_dates()
+    SetDates(ui.get_dates())
 
     if not ui.restart_program():
             #break
@@ -50,18 +50,13 @@ def SetTimeSeries(x):
     global timeSeries
     timeSeries = x
 
-def SetBeginningDate(x):
+def SetDates(x, y):
     #Gets input from UI to set the beginning date for the charts
     #Must be a correct formart (error check)
     global bDate
     bDate = x
-
-def SetEndDate(x):
-    #Gets input from UI to set the end date for the charts
-    #Must be a correct formart (error check)
-    #Cannot be before the beginning date (error check)
     global eDate
-    eDate = x 
+    eDate = y     
 
 ########################
 #This is the Get Section
