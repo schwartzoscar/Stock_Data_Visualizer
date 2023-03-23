@@ -12,6 +12,13 @@ def main():
         if (app.GetChartType() == "Bar"): graph.create_bar_graph()
         else: graph.create_line_graph()
 
+        try:
+            if (app.GetChartType() == "Bar"): graph.create_bar_graph()
+            else: graph.create_line_graph()
+        except ValueError:
+            print("Can not find data for this query")
+            continue
+
         if not ui.restart_program():
                 break
     return
