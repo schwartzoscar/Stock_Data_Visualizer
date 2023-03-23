@@ -29,7 +29,7 @@ def pullStock():
 #     "change_percent": stock_data["10. change percent"]
 
     app.SetStock(data)
-})
+# })
 
 
 
