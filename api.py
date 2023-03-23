@@ -14,19 +14,21 @@ def pullStock():
     url = f"https://www.alphavantage.co/query?function={app.GetTimeSeries()}&symbol={app.GetStockSymbol()}&apikey={app.GetApi()}"
     r = requests.get(url)
     data = r.json()
-    stock_data = data["Global Quote"]
+#     stock_data = data["Global Quote"]
 
-    app.SetStock({
-    "symbol": stock_data["01. symbol"],
-    "open": stock_data["02. open"],
-    "high": stock_data["03. high"],
-    "low": stock_data["04. low"],
-    "price": stock_data["05. price"],
-    "volume": stock_data["06. volume"],
-    "last_refreshed": stock_data["07. latest trading day"],
-    "previous_close": stock_data["08. previous close"],
-    "change": stock_data["09. change"],
-    "change_percent": stock_data["10. change percent"]
+#     app.SetStock({
+#     "symbol": stock_data["01. symbol"],
+#     "open": stock_data["02. open"],
+#     "high": stock_data["03. high"],
+#     "low": stock_data["04. low"],
+#     "price": stock_data["05. price"],
+#     "volume": stock_data["06. volume"],
+#     "last_refreshed": stock_data["07. latest trading day"],
+#     "previous_close": stock_data["08. previous close"],
+#     "change": stock_data["09. change"],
+#     "change_percent": stock_data["10. change percent"]
+
+    app.SetStock(data)
 })
 
 
