@@ -36,13 +36,13 @@ def SetTimeSeries(x):
     global timeSeries
     timeSeries = x
 
-def SetDates(x, y):
+def SetDates(x:tuple):
     #Gets input from UI to set the beginning date for the charts
     #Must be a correct formart (error check)
     global bDate
-    bDate = x
+    bDate = x[0]
     global eDate
-    eDate = y     
+    eDate = x[1]     
 
 ########################
 #This is the Get Section
