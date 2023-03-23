@@ -1,7 +1,10 @@
 from datetime import datetime
-import graph
+import graph, error
 def get_stock_symbol():
-    stockSymbol = input("Enter the stock Symbol you are looking for: ")
+    checkInput = False
+    while not checkInput:
+        stockSymbol = input("Enter the stock Symbol you are looking for: ")
+        checkInput = error.CheckSymbolInput(stockSymbol)
     print(stockSymbol)
     return stockSymbol
 
