@@ -6,7 +6,7 @@ def main():
     app.SetStockSymbol(ui.get_stock_symbol())
     app.SetChartType(ui.get_chart_type())
     app.SetTimeSeries(ui.get_time_series())
-    app.SetDates(ui.get_dates())
+    app.SetDates(ui.get_dates()[0],  ui.get_dates()[1])
     
     if (app.GetChartType() == "Bar"): graph.create_bar_graph()
     else: graph.create_line_graph()
