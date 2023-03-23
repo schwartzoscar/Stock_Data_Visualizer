@@ -34,7 +34,7 @@ def get_time_series():
             valid_time_type = True
         elif timeSeries == '2':
             print("Daily")
-            return "TIME_SERIES_DAILY"
+            return "TIME_SERIES_DAILY_ADJUSTED"
             valid_time_type = True
         elif timeSeries == '3':
             print("Weekly")

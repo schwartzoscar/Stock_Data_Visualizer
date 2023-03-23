@@ -1,5 +1,5 @@
 import pygal, re, app
-from datetime import datetime
+from datetime import datetime, timedelta
 from pygal.style import Style
 
 
@@ -190,6 +190,25 @@ def get_date_index(data: list, date: str):
     Returns:
         int representing index of the item in the list OR -1 to represent the date not existing
     '''
+    time_series = app.GetTimeSeries()
+
+    #   If it is weekly data try to find a date near the requested date
+    if (time_series == "TIME_SERIES_WEEKLY"):
+        date: datetime = datetime.strptime(date, "%Y-%m-%d")
+        dates = [date]
+        for i in range(-3,4):
+            week_day = (date + timedelta(days=i)).strftime("%Y-%m-%d")
+            print(week_day)
+            for k in range(len(data)):
+                if week_day in data[k]["date"]:
+                    return k
+        return -1
+
+    #   If monthly only check the month and year fields
+    if (time_series == "TIME_SERIES_MONTHLY"):
+        date = datetime.strptime(date, "%Y-%m-%d").strftime("%Y-%m")
+
+    #   Iterate through data to find index of date in data
     for i in range(len(data)):
         if date in data[i]["date"]:
             return i
