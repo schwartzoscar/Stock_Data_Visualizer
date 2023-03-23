@@ -8,7 +8,7 @@ def create_line_graph():
     '''
     Creates a Line Graph of given data and displays in the user's default browser.
     '''
-    create_graph(json, pygal.Line())
+    create_graph(app.GetStock(), pygal.Line())
 
 
 def create_bar_graph():
@@ -79,7 +79,7 @@ def string_to_datetime():
         #   Stores the previous day as a static variable
         nonlocal previous
 
-        if (time_series == "Intraday"):
+        if (time_series == "TIME_SERIES_INTRADAY"):
             #   For Intraday graphs:
             day = datetime.strptime(date, '%Y-%m-%d %H:%M:%S')
             if (day.date() == previous.date()):
@@ -126,7 +126,13 @@ def extract_data(json: dict):
 
     #   Sorts the list using the get_date function and returns it
     data_points.sort(key = get_date)
-    return data_points
+
+    #   Finds index of Begin Date and End date
+    start = get_date_index(data_points, app.GetBeginningDate())
+    end = get_date_index(data_points, app.GetEndDate())
+
+    #   Gets the data between the given dates
+    return segment_data(data_points, start, end)
 
 
 def create_title():
@@ -169,3 +175,32 @@ def graph_styling(graph: pygal.Graph, point_count: int):
     graph.height = point_count * 25 
     graph.legend_box_size = point_count/3
 
+
+def get_date_index(data: list, date: str):
+    '''
+    Finds the index of the item with the given data
+
+    Parameters:
+        data: list of all data points
+        date: string representing date to be searched for in formate YYYY-MM-DD
+
+    Returns:
+        int representing index of the item in the list OR -1 to represent the date not existing
+    '''
+    for i in range(len(data)):
+        if date in data[i]["date"]:
+            return i
+    return -1
+
+
+def segment_data(data:list, start:int, end:int):
+    '''
+    Retrieves the segement of the data between two index points
+
+    Parameters:
+        data: the list of the dictionary data points
+
+    '''
+    start = start if start != -1 else 0
+    end = end if end != -1 else len(data)
+    return [data[i] for i in range(start, end)]
