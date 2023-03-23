@@ -28,23 +28,22 @@ def get_time_series():
         timeSeries = input("Select the time series of the chart you want to generate\n--------------------------\n1. Intradaily\n2. Daily\n3. Weekly\n4. Monthly\nEnter the time series option (1, 2, 3, 4): ")
         if timeSeries == '1':
             print("Intraday")
-            return TIME_SERIES_INTRADAY
+            return "TIME_SERIES_INTRADAY"
             valid_time_type = True
         elif timeSeries == '2':
             print("Daily")
-            return TIME_SERIES_DAILY
+            return "TIME_SERIES_DAILY"
             valid_time_type = True
         elif timeSeries == '3':
             print("Weekly")
-            return TIME_SERIES_WEEKLY
+            return "TIME_SERIES_WEEKLY"
             valid_time_type = True
         elif timeSeries == '4':
             print("Monthly")
-            return TIME_SERIES_MONTHLY
+            return "TIME_SERIES_MONTHLY"
             valid_time_type = True
         else:
             print("Invalid input. Please enter 1, 2, 3 or 4.")
-        return timeSeries
 
 def get_dates():
     while True:
@@ -60,8 +59,7 @@ def get_dates():
             if bDate > eDate:
                 print("Error: Start date must be before end date.")
             else:
-                app.SetBeginningDate(bDate_str)
-                app.SetEndDate(eDate_str)
+                return(bDate_str, eDate_str)
         except ValueError:
             print("Error: Invalid date format. Please enter a date in the format YYYY-MM-DD.")
             #if the user enteres a end date before the start date it will ask for the start date again.
