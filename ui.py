@@ -11,15 +11,15 @@ def get_chart_type():
         chartType = input("Chart Types\n----------\n1. Bar\n2. Line\nEnter the chart type you want (1, 2): ")
         if chartType == '1':
             print("Bar")
-            graph.create_bar_graph()
+            return "Bar"
             valid_chart_type = True
         elif chartType == '2':
             print("Line")
-            graph.create_line_graph()
+            chart = "Line"
+            return "Chart"
             valid_chart_type = True
         else:
             print("Invalid input. Please enter 1 or 2.")
-    return chartType
 
 def get_time_series():
     valid_time_type = False
