@@ -11,7 +11,10 @@ import app
 #symbol = stock_data["symbol"]
 
 def pullStock():
-    url = f"https://www.alphavantage.co/query?function={app.GetTimeSeries()}&symbol={app.GetStockSymbol()}&apikey={app.GetApi()}"
+    if app.GetTimeSeries == "TIME_SERIES_INTRADAY":
+        url = f"https://www.alphavantage.co/query?function={app.GetTimeSeries()}&symbol={app.GetStockSymbol()}&interval=15min&apikey={app.GetApi()}"
+    else:
+        url = f"https://www.alphavantage.co/query?function={app.GetTimeSeries()}&symbol={app.GetStockSymbol()}&apikey={app.GetApi()}"
     r = requests.get(url)
     data = r.json()
 #     stock_data = data["Global Quote"]
