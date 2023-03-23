@@ -7,7 +7,7 @@ def main():
     app.SetChartType(ui.get_chart_type())
     app.SetTimeSeries(ui.get_time_series())
     app.SetDates(ui.get_dates())
-    
+    api.pullStock()
     if (app.GetChartType() == "Bar"): graph.create_bar_graph()
     else: graph.create_line_graph()
 
