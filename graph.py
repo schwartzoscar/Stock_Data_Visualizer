@@ -117,7 +117,10 @@ def extract_data(json: dict):
     '''
     #   Finds the "Time Series" key within the dictionary, whether it is "Time Series (Daily)", "... (Monthly)", or "... (15min)"
     #   Loops through keys, checks if they match, then will return the first (and only) instance
-    time_series = [k for k in json.keys() if re.match(r".*Time Series.*", k)][0]
+    try:
+        time_series = [k for k in json.keys() if re.match(r".*Time Series.*", k)][0]
+    except IndexError:
+        raise ValueError("Could not find data for this query")
 
     #   Takes each line that looks like this: "YYYY-MM-DD": {"key1": "value1", "key2": "value2"}
     #   Converts it to this {"date": "YYYY-MM-DD", "key1": "value1", "key2": "value2"}

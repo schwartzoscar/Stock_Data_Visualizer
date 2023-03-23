@@ -14,7 +14,7 @@ def main():
             if (app.GetChartType() == "Bar"): graph.create_bar_graph()
             else: graph.create_line_graph()
         except ValueError:
-            print("Can not find data for this query")
+            print("Can not find data for this symbol. Please try again.\n\n")
             continue
 
         if not ui.restart_program():
