@@ -24,7 +24,7 @@ def get_chart_type():
 def get_time_series():
     valid_time_type = False
     while not valid_time_type:
-        timeSeries = input("Select the time series of the chart you want to generate\n--------------------------\n1. Intradaily\n2. Daily\n3. Weekly\n4. Monthly\nEnter the time series option (1, 2, 3, 4): ")
+        timeSeries = input("Select the time series of the chart you want to generate\n--------------------------\n1. Intraday\n2. Daily\n3. Weekly\n4. Monthly\nEnter the time series option (1, 2, 3, 4): ")
         if timeSeries == '1':
             print("Intraday")
             return "TIME_SERIES_INTRADAY"
