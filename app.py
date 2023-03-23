@@ -11,20 +11,6 @@ timeSeries = None
 bDate = None
 eDate = None
 
-#Main function needs to accept input and send output to the ui.py file.
-def Main():
-    #Call function in ui.py that begins the interaction between the user and system
-    print("Stock Data Visualizer\n--------------------")
-    #SetStockSymbol(ui.get_stock_symbol())
-    SetChartType(ui.get_chart_type())
-    SetTimeSeries(ui.get_time_series())
-    SetDates(ui.get_dates())
-
-    if not ui.restart_program():
-            #break
-            return
-    return
-
 ########################
 #This is the Set Section
 #These are things/functions for me to grab information
@@ -95,5 +81,3 @@ def GetEndDate():
     #Must be a correct formart (error check)
     #Cannot be before the beginning date (error check)
     return eDate
-
-Main()
