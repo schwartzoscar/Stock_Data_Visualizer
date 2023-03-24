@@ -1,14 +1,10 @@
 # This file should error check every possible error
+import re
+
 def CheckSymbolInput(x):
-    count = 0
-    for char in x:
-        count += 1
-    if not char.isalnum():
-        print("Invalid Input. Input contains special characters.")
-        return False
-    if count > 5:
-        print("Invalid Input. Too many characters in input, make sure to NOT include $")
+    pattern = r"^[A-Z]{1,5}$"
+    if not re.match(pattern, x):
+        print("Invalid input. Input is not a valid stock code.")
         return False
     else:
         return True
-        
