@@ -1,6 +1,6 @@
 # StockDataVisualizer
 
-##To start program, run index.py
+## To start program, run index.py
 
 ## Python Files to be Created
 ### Each person should choose one file to create
